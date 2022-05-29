@@ -1,0 +1,10 @@
+#foto-file{
+    background-color: red;
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    opacity: 0;
+}

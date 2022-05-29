@@ -1,0 +1,29 @@
+.navbar{
+    z-index: 100;
+}
+.dropdown-menu-end[data-bs-popper]{
+	width: 500px;
+}
+
+#cliente_login{
+    position: absolute;
+    right: 50px;
+    top: 60px;
+    width: 500px;
+    background-color: #dadada;
+    z-index: 200;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#detalle_carrito{
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    width: 500px;
+    min-height: 100px;
+    background-color: #c9c9c9;
+    z-index: 200;
+    border-radius: 10px;
+    padding: 10px;
+}

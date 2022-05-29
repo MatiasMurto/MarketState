@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="./frm/seguridad/copias_seguridad/index.css">
+<div class="card">
+    <div class="card-body">
+        <div class="alert alert-warning" role="alert">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <button id='boton-realizar-copia' class="btn btn-outline-primary btn-sm" onclick='realizar_backup()'>
+                        <i class="fas fa-database"></i> Realizar Copia
+                    </button>
+                </div>
+            </div>
+            <div id="panel-formulario-mensaje" class="alert alert-danger mt-2 text-center d-none" role="alert"></div>      
+        </div>
+        <div class="input-group mb-1">
+            <span class="input-group-text texto-campo">
+                Buscar
+            </span>
+            <input id="buscar" name="buscar" type="text" class="form-control" placeholder="Buscar texto ..." onkeyup="buscar_backups()">
+            <span class="input-group-text">
+                <i class="fas fa-search"></i>
+            </span>
+        </div>
+        <div class="table-resposive">
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Copias de Seguridad</th>
+                        <th class="text-center" style="width: 100px;"></th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-datos-backups">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button id='boton-salir' class="btn btn-outline-danger btn-sm" onclick='salir_formulario()''>
+            <i class="fas fa-sign-out-alt"></i> Salir
+        </button>
+    </div>
+</div>
+<script src="./frm/seguridad/copias_seguridad/index.js"></script>

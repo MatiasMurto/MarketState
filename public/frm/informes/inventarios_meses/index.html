@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="./frm/informes/ventas_meses/index.css">
+<div class="card">
+    <div class="card-body">
+        <div class="alert alert-warning" role="alert">
+            <div class="row mb-1">
+                <div class="col-md-12">
+                    <div class="input-group mb-1">
+                        <span class="input-group-text texto-campo">
+                            Año
+                        </span>
+                        <input id="anio" name="anio" placeholder="Año" class="form-control" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2 no-print">
+                <div class="col md-12 text-center">
+                    <button type="button" id="boton-consultar" class="btn btn-outline-primary btn-sm" onclick="consultar()">
+                        <i class="fas fa-tasks"></i> Consultar
+                    </button>
+                    <button type="button" id="boton-imprimir" class="btn btn-outline-danger btn-sm" onclick="imprimir()">
+                        <i class="fas fa-print"></i> Imprimir
+                    </button>
+                </div>
+            </div>
+            <div id="panel-formulario-mensaje" class="alert alert-danger mt-2 text-center d-none" role="alert"></div>      
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="table-resposive">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Mes</th>
+                                <th class="text-end">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-datos-ventas"></tbody>
+                        <thead>
+                            <tr>
+                                <td>TOTAL</td>
+                                <td id="total_ventas" class="text-end">0</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <canvas id="myChart"></canvas>
+                <canvas id="myChart2"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="button" id='boton-salir' class="btn btn-outline-danger btn-sm no-print" onclick='salir_formulario()''>
+            <i class="fas fa-sign-out-alt"></i> Salir
+        </button>
+    </div>
+</div>
+<script src="./frm/informes/ventas_meses/index.js"></script>

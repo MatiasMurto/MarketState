@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketState</title>
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark animate__animated animate__bounceIn">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./img/logo.png" alt="Logo" height="35">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Productos
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Ultimos</a></li>
+                            <li><a class="dropdown-item" href="#">Mas vendidos</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Mas buscados</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Empresa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contactos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./admin">Admin</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <button type="button" class="btn" onclick="mostrar_cliente_login()">
+                        <i class="far fa-user" style="font-size: 24px; color: white"></i>
+                    </button>
+                    <button type="button" class="btn position-relative" onclick="mostrar_carrito()">
+                        <i class="fas fa-cart-plus" style="font-size: 24px; color: white"></i>
+                        <span class="position-absolute start-150 translate-middle badge rounded-pill bg-danger"
+                            style="top: 10px">
+                            <span id="cantidad_carrito">0</span>
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div id="cliente_login" class="d-none">
+        <form id="form-cliente">
+            <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon-usuario">
+                    <i class="fas fa-user"></i>
+                </span>
+                <input id="usuario" type="text" class="form-control" placeholder="Usuario" aria-label="Usuario"
+                    aria-describedby="basic-addon-usuario" autocomplete="username">
+            </div>
+            <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon-clave">
+                    <i class="fas fa-key"></i>
+                </span>
+                <input id="clave" type="password" class="form-control" placeholder="Contraseña" aria-label="Clave"
+                    aria-describedby="basic-addon-clave" autocomplete="current-password">
+            </div>
+            <div class="d-grid gap-2">
+                <button id="boton-ingresar-cliente" class="btn btn-primary" type="button" onclick="cliente_login()">
+                    <i class="fas fa-sign-in-alt"></i> Ingresar
+                </button>
+            </div>
+        </form>
+        <div id="datos-cliente" class="d-none">
+            <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon-cliente-nombre">
+                    <i class="fas fa-user"></i>
+                </span>
+                <input id="cliente_nombre" type="text" class="form-control" placeholder="Cliente nombre"
+                    aria-label="Cliente Nombre" aria-describedby="basic-addon-cliente-nombre" readonly>
+            </div>
+            <div class="d-grid gap-2">
+                <button id="boton-salir-cliente" class="btn btn-danger" type="button" onclick="cliente_logout()">
+                    <i class="fas fa-sign-out-alt"></i> Salir
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="detalle_carrito" class="d-none">
+        <table class="table table-striped table-hover table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tabla-carrito-datos">
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">TOTALES</td>
+                    <td id="total-carrito" class="text-end">0</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="d-grid gap-2">
+            <button class="btn btn-danger" type="button" onclick="comprar()">
+                <i class="bi bi-cart-fill"></i> Comprar
+            </button>
+        </div>
+    </div>
+    <div id="carouselExampleCaptions" class="carousel slide animate__animated animate__fadeIn" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./img/carousel/1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5></h5>
+                    <p></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./img/carousel/2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5></h5>
+                    <p></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./img/carousel/3.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5></h5>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="input-group mb-3">
+        <input id="buscar" type="text" class="form-control" placeholder="Quiero comprar este producto ..."
+            aria-label="Buscar" aria-describedby="basic-addon-buscar" autofocus>
+        <span class="input-group-text" id="basic-addon-buscar">
+            <i class="fas fa-search"></i>
+        </span>
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <% result.forEach(function(producto){ %>
+            <div class="col">
+                <div class="card">
+                    <img src="./img/productos/<%= producto.id %>.jpg" alt="<% producto.nombre %>" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <p>
+                                <%= producto.nombre %>
+                            </p>
+                            <p>
+                                <%= producto.precio %>
+                            </p>
+                        </h5>
+                        <p class="card-text">
+                            <%= producto.descripcion %>
+                        </p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-sm btn-primary" data-id_producto=<%=producto.id %>
+                            onclick="agregar_carrito(this)">
+                            <i class="fas fa-cart-plus"></i> Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+    </div>
+
+    <footer class="text-white text-center text-lg-start bg-dark ">
+        <div class="container p-3">
+            <div class="row mt-4">
+                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Info de la Empresa</h5>
+
+                    <p>
+                        MarketState 
+                    </p>
+
+                    <p>
+                        Tus Compras Facil, Rapido y Seguro :)
+                    </p>
+
+                    <div class="mt-4">
+                        <a type="button" class="btn btn-floating btn-primary btn-lg"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-dribbble"></i></a>
+                        <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-twitter"></i></a>
+                        <a type="button" class="btn btn-floating btn-primary btn-lg"><i
+                                class="fab fa-google-plus-g"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0 mb-lg-0">
+                    <div class="ul-footer">
+                        <ul class="fa-ul ">
+                            <li class="mb-3">
+                                <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Asunción, Mcal Lopez esq Melvin Jones, Paraguay</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fa-li"><i class="fas fa-envelope"></i></span><span
+                                    class="ms-2">atencion@marketstate.com</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 595 982 321
+                                324 </span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fa-li"><i class="fas fa-print"></i></span><span class="ms-2">+ 595 971 235
+                                    289</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4 text-center">Horario</h5>
+
+                    <table class="table text-center text-white">
+                        <tbody class="font-weight-normal">
+                            <tr>
+                                <td>Lunes a Viernes:</td>
+                                <td>8:00 AM - 7:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Sabados</td>
+                                <td>8:00 AM - 5:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Domingos</td>
+                                <td>9:00 AM - 1:00 PM</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            MarketState© 2021 Copyright
+            <a class="text-white" href="#"></a>
+        </div>
+
+    </footer>
+
+    <div id="mensaje"></div>
+
+    <script src="/js/bootstrap.min.js" defer></script>
+    <script src="/js/scripts.js" defer></script>
+    <script src="/js/index.js" defer></script>
+</body>
+
+</html>

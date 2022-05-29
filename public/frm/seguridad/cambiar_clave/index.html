@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="./frm/seguridad/cambiar_clave/index.css">
+<div class="card">
+    <div class="card-body">
+        <div class="alert alert-warning" role="alert">
+            <form>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group mb-1">
+                            <span class="input-group-text texto-campo">
+                                Nombre
+                            </span>
+                            <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group mb-1">
+                            <span class="input-group-text texto-campo">
+                                Usuario
+                            </span>
+                            <input id="usuario" name="usuario" type="text" class="form-control" placeholder="Usuario" readonly autocomplete="username">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group mb-1">
+                            <span class="input-group-text texto-campo">
+                                Contraseña
+                            </span>
+                            <input id="clave" name="clave" type="password" class="form-control" placeholder="Contraseña" autocomplete="new-password">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-12">
+                        <div class="input-group mb-1">
+                            <span class="input-group-text texto-campo">
+                                Confirmar Contraseña
+                            </span>
+                            <input id="confirmacion" name="confirmacion" type="password" class="form-control" placeholder="Confirmacion de la Contraseña" autocomplete="new-password">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <button id='boton-guardar' type="button" class="btn btn-outline-primary btn-sm" onclick='guardar()'>
+                        <i class="fas fa-save"></i> Guardar
+                    </button>
+                </div>
+            </div>
+            <div id="panel-formulario-mensaje" class="alert alert-danger mt-2 text-center d-none" role="alert"></div>
+        </div>
+        <div class="card-footer text-center">
+            <button id='boton-salir' type="button" class="btn btn-outline-danger btn-sm" onclick='salir_formulario()'>
+                <i class="fas fa-sign-out-alt"></i> Salir
+            </button>
+        </div>
+    </div>
+</div>
+<script src="./frm/seguridad/cambiar_clave/index.js"></script>

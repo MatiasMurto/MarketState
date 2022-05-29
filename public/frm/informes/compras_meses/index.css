@@ -1,0 +1,13 @@
+@media print {
+  .no-print{
+      display: none;
+  }
+  .menu-admin{
+      left: -300px;
+  }
+  .panel-main{
+    left: 0;
+	width: 100%;
+    padding: 200px;
+  }
+}

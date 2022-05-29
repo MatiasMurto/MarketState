@@ -1,0 +1,106 @@
+#menu-boton{
+    cursor: pointer;
+}
+
+.navbar {
+	z-index: 100;
+}
+
+.menu-admin{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 55px;
+    width: 300px;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-x: hidden;
+	background: rgba(255, 255, 255, 0.25);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	transition: all 1s;
+}
+
+.panel-main{
+    position: absolute;
+    top: 57px;
+    left: 300px;
+    width: calc(100% - 300px);
+    transition: all 1s;
+}
+
+.panel-main-oculto{
+	left: 0;
+	width: 100%;
+}
+
+.menu-oculto{
+	left: -300px;
+}
+
+.accordion-button {
+	padding: 10px;
+	background-color: transparent;
+}
+.accordion-button:not(.collapsed) {
+	padding: 10px;
+	background-color: transparent;
+}
+.accordion-button:focus {
+	border-color: #f48fb1;
+}
+.accordion-item {
+	background-color: transparent;
+	border: none;
+}
+.accordion-body {
+	padding: 0;
+}
+.list-group-item {
+	background-color: transparent;
+}
+.list-group-item.active {
+	background-color: #f48fb1;
+	border-color: #f48fb1;
+}
+.menu-admin .list-group-item {
+	cursor: pointer;
+}
+
+/* scroll bar */
+/* Tamaño del scroll */
+.menu-admin::-webkit-scrollbar {
+	width: 8px;
+}
+
+/* Estilos barra (thumb) de scroll */
+.menu-admin::-webkit-scrollbar-thumb {
+	background: #dd52b3;;
+	border-radius: 4px;
+}
+
+.menu-admin::-webkit-scrollbar-thumb:active {
+	background-color: #f513b1;
+}
+
+.menu-admin::-webkit-scrollbar-thumb:hover {
+	background: #dd52b3;
+	box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos track de scroll */
+.menu-admin::-webkit-scrollbar-track {
+	background: #f8a7cd;
+	border-radius: 4px;
+}
+
+.card-footer{
+	text-align: center;
+}
+
+.texto-campo{
+	width: 150px;
+}

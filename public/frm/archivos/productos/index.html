@@ -1,0 +1,109 @@
+<link rel="stylesheet" href="./frm/archivos/productos/index.css">
+<div class="card">
+    <div class="card-body">
+        <div class="alert alert-warning" role="alert">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="mb-1 row">
+                        <div class="col-md-12">
+                            <div class="mb-1 input-group">
+                                <span class="input-group-text texto-campo">
+                                    Nombre
+                                </span>
+                                <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-1 row">
+                        <div class="col-md-6">
+                            <div class="mb-1 input-group">
+                                <span class="input-group-text texto-campo">
+                                    Costo
+                                </span>
+                                <input id="costo" name="costo" type="number" class="form-control text-end"
+                                    placeholder="Costo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-1 row">
+                        <div class="col-md-6">
+                            <div class="mb-1 input-group">
+                                <span class="input-group-text texto-campo">
+                                    Precio
+                                </span>
+                                <input id="precio" name="precio" type="number" class="form-control text-end"
+                                    placeholder="Precio">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-1 row">
+                        <div class="col-md-6">
+                            <div class="mb-1 input-group">
+                                <span class="input-group-text texto-campo">
+                                    Stock
+                                </span>
+                                <input id="stock" name="stock" type="number" class="form-control text-end"
+                                    placeholder="Stock">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <img id="foto-img" src="img/productos/0.jpg" class="mx-auto d-flex img-fluid" alt="Foto usuario">
+                    <input type="file" name="foto-file" id="foto-file" accept="image/jpeg" onchange="cargar_foto(this)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center col-md-12">
+                    <button type="button" id='boton-guardar' class="btn btn-outline-primary btn-sm" onclick='guardar()'>
+                        <i class="fas fa-plus"></i> Agregar
+                    </button>
+                    <button type="button" id='boton-cancelar' class="btn btn-outline-secondary btn-sm"
+                        onclick='agregar_linea()'>
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </div>
+            <div id="panel-formulario-mensaje" class="mt-2 text-center alert alert-danger d-none" role="alert">
+            </div>
+        </div>
+        <div class="mb-1 input-group">
+            <span class="input-group-text texto-campo">
+                Buscar
+            </span>
+            <input id="buscar" name="buscar" type="text" class="form-control" placeholder="Buscar texto ..."
+                onkeyup="buscar_productos()">
+            <span class="input-group-text">
+                <i class="fas fa-search"></i>
+            </span>
+        </div>
+        <div class="table-resposive">
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th class="text-end">Costo</th>
+                        <th class="text-end">Precio</th>
+                        <th class="text-end">Stock</th>
+                        <th class="text-center">Imágen</th>
+                        <th class="text-center" style="width: 100px;">
+                            <button id='boton-agregar-linea' class="btn btn-outline-info btn-sm"
+                                onclick='agregar_linea()'>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-datos-productos">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="button" id='boton-salir' class="btn btn-outline-danger btn-sm" onclick='salir_formulario()''>
+            <i class="fas fa-sign-out-alt"></i> Salir
+        </button>
+    </div>
+</div>
+<script src="./frm/archivos/productos/index.js"></script>

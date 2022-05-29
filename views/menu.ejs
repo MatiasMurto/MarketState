@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Punto de Venta | Menú</title>
+  <link rel="shortcut icon" href="./img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/all.min.css">
+  <link rel="stylesheet" href="./css/animate.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+  <link rel="stylesheet" href="./css/menu.css">
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark animate__animated animate__backInDown">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./menu">
+        <img src="./img/logo.png" alt="Logo" height="20" style="margin-top: -10px">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-0">
+          <li><i id="menu-boton" class="fas fa-bars" style="color: grey; font-size:32px;"></i></li>
+        </ul>
+        <form class="d-flex">
+          <div class="btn-group">
+            <img id="img-usuario-menubar" src="./img/usuarios/1.jpg" alt="Logo" height="37" class="rounded-circle me-1 shadow">
+            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+              <li><a id="nombre-usuario-menubar" class="dropdown-item" href="#"></a></li>
+              <li><a class="dropdown-item" href="#">Cambiar Contraseña</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="./admin">Salir</a></li>
+            </ul>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!-- MENU LATERAL -->
+  <div class="panel-principal">
+    <div id="menu-admin" class="menu-admin animate__animated animate__fadeIn">
+      <div class="text-center">
+        <img id="img-logo" src="./img/logo.png" alt="img-logo" width="100">
+      </div>
+      <div class="accordion" id="accordion_menu">
+        
+      </div>
+    </div>
+    <div id="panel-main" class="panel-main">
+      <div id="panel-lista"></div>
+      <div id="panel-formulario"></div>
+    </div>
+  </div>
+
+  <div id="mensaje"></div>
+
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+  <script src="./js/chart.min.js"></script>
+  <script src="./js/scripts.js"></script>
+  <script src="./js/menu.js"></script>
+</body>
+
+</html>

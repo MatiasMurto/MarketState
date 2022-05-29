@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Punto de Administación | Admin</title>
+  <link rel="shortcut icon" href="./img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/all.min.css">
+  <link rel="stylesheet" href="./css/animate.min.css">
+  <link rel="stylesheet" href="./css/admin.css">
+</head>
+
+<body>
+  
+  <form class="panel-admin animate__animated animate__backInDown">
+    <img src="./img/logo.png" alt="Logo">
+    <div class="input-group mb-1">
+      <span class="input-group-text" id="basic-addon-usuario">
+        <i class="fas fa-user"></i>
+      </span>
+      <input id="usuario" type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon-usuario" autocomplete="username">
+    </div>
+    <div class="input-group mb-1">
+      <span class="input-group-text" id="basic-addon-clave">
+        <i class="fas fa-key"></i>
+      </span>
+      <input id="clave" type="password" class="form-control" placeholder="Contraseña" aria-label="Clave" aria-describedby="basic-addon-clave" autocomplete="current-password">
+    </div>
+    <div class="btn-group d-flex" role="group" aria-label="Botonera">
+      <button id="boton-ingresar" type="button" class="btn btn-primary">
+        <i class="fas fa-sign-in-alt"></i> Ingresar
+      </button>
+      <button id="boton-salir" type="button" class="btn btn-danger">
+        <i class="fas fa-sign-out-alt"></i> Salir
+      </button>
+    </div>
+  </form>
+  
+  <div id="mensaje"></div>
+
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/scripts.js"></script>
+  <script src="./js/admin.js"></script>
+</body>
+
+</html>

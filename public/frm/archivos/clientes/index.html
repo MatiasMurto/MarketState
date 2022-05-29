@@ -1,0 +1,129 @@
+<link rel="stylesheet" href="./frm/archivos/clientes/index.css">
+<div class="card">
+    <div class="card-body">
+        <div class="alert alert-warning" role="alert">
+            <form>
+                <div class="row mb-1">
+                    <div class="col-md-12">
+                        <div class="input-group mb-1">
+                            <span class="input-group-text texto-campo">
+                                Nombre
+                            </span>
+                            <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-md-12">
+                        <div class="input-group mb-1">
+                            <span class="input-group-text texto-campo">
+                                Direccion
+                            </span>
+                            <input id="direccion" name="direccion" type="text" class="form-control" placeholder="Dirección">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-md-12">
+                        <div class="input-group mb-1">
+                            <span class="input-group-text texto-campo">
+                                Telefono
+                            </span>
+                            <input id="telefono" name="telefono" type="text" class="form-control" placeholder="Teléfono">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-md-12">
+                        <div class="input-group mb-1">
+                            <span class="input-group-text texto-campo">
+                                RUC
+                            </span>
+                            <input id="ruc" name="ruc" type="text" class="form-control" placeholder="RUC">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-md-12">
+                        <div class="input-group mb-1">
+                            <span class="input-group-text texto-campo">
+                                Email
+                            </span>
+                            <input id="email" name="email" type="text" class="form-control" placeholder="Email" autocomplete="username">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-md-12">
+                        <div class="input-group mb-1">
+                            <span class="input-group-text texto-campo">
+                                Contraseña
+                            </span>
+                            <input id="clave" name="clave" type="password" class="form-control" placeholder="Contraseña" autocomplete="current-password">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-12">
+                        <div class="input-group mb-1">
+                            <span class="input-group-text texto-campo">
+                                Localización
+                            </span>
+                            <input id="localizacion" name="localizacion" type="text" class="form-control" placeholder="Localización">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-12 text-center">
+                        <button type="button" id='boton-guardar' class="btn btn-outline-primary btn-sm" onclick='guardar()'>
+                            <i class="fas fa-plus"></i> Agregar
+                        </button>
+                        <button type="button" id='boton-cancelar' class="btn btn-outline-secondary btn-sm" onclick='agregar_linea()'>
+                            <i class="fas fa-times"></i> Cancelar
+                        </button>
+                    </div>
+                </div>
+                <div id="panel-formulario-mensaje" class="alert alert-danger mt-2 text-center d-none" role="alert"></div>
+            </form>
+            <div id="mapid"></div>
+        </div>
+        <div class="input-group mb-1">
+            <span class="input-group-text texto-campo">
+                Buscar
+            </span>
+            <input id="buscar" name="buscar" type="text" class="form-control" placeholder="Buscar texto ..." onkeyup="buscar_clientes()">
+            <span class="input-group-text">
+                <i class="fas fa-search"></i>
+            </span>
+        </div>
+        <div class="table-resposive">
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
+                        <th>RUC</th>
+                        <th>Email</th>
+                        <th>Clave</th>
+                        <th>Localización</th>
+                        <th class="text-center" style="width: 100px;">
+                            <button id='boton-agregar-linea' class="btn btn-outline-info btn-sm" onclick='agregar_linea()'>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-datos-clientes">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="button" id='boton-salir' class="btn btn-outline-danger btn-sm" onclick='salir_formulario()''>
+            <i class="fas fa-sign-out-alt"></i> Salir
+        </button>
+    </div>
+</div>
+<script src="./frm/archivos/clientes/index.js"></script>

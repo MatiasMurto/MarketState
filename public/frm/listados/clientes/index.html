@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="./frm/listados/clientes/index.css">
+
+<div class="card">
+    <div class="card-body">
+        <div class="alert alert-warning" role="alert">
+            <div class="row mb-1">
+                <div class="col-md-6">
+                    <div class="input-group mb-1">
+                        <span class="input-group-text texto-campo">
+                            Desde cliente
+                        </span>
+                        <input id="desde_cliente" name="desde_cliente" placeholder="Desde Cliente" class="form-control text-end" type="number" value="0">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group mb-1">
+                        <span class="input-group-text texto-campo">
+                            Hasta cliente
+                        </span>
+                        <input id="hasta_cliente" name="hasta_cliente" placeholder="Hasta Cliente" class="form-control text-end" type="number" value="9999999">
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2 no-print">
+                <div class="col md-12 text-center">
+                    <button type="button" id="boton-imprimir" class="btn btn-outline-primary btn-sm" onclick="imprimir()">
+                        <i class="fas fa-print"></i> Imprimir
+                    </button>
+                </div>
+            </div>
+            <div id="panel-formulario-mensaje" class="alert alert-danger mt-2 text-center d-none" role="alert">
+
+            </div>      
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="button" id='boton-salir' class="btn btn-outline-danger btn-sm no-print" onclick='salir_formulario()''>
+            <i class="fas fa-sign-out-alt"></i> Salir
+        </button>
+    </div>
+</div>
+
+<script src="./frm/listados/clientes/index.js"></script>

@@ -1,0 +1,190 @@
+<link rel="stylesheet" href="./frm/procesos/compras/index.css">
+<div class="card">
+    <div class="card-body">
+        <div class="alert alert-warning" role="alert">
+            <div class="row mb-1">
+                <div class="col-md-12">
+                    <div class="input-group mb-1">
+                        <span class="input-group-text texto-campo">
+                            Fecha
+                        </span>
+                        <input id="fecha" name="fecha" placeholder="Fecha" class="form-control" type="text" readonly>
+                        <span class="input-group-text">
+                            <button class="btn btn-sm btn-outline-danger" onclick="calendario('fecha','fecha_calendario','panel-lista')">
+                                <i class="fas fa-calendar"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-1">
+                <div class="col-md-12">
+                    <div class="input-group mb-1">
+                        <span class="input-group-text texto-campo text-md">
+                            Condición
+                        </span>
+                        <select id="condicion" name="condicion" class="form-control">
+                            <option value="1">Contado</option>
+                            <option value="2">Crédito</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-1">
+                <div class="col-md-6">
+                    <div class="input-group mb-1">
+                        <span class="input-group-text texto-campo">
+                            Timbrado
+                        </span>
+                        <input id="timbrado" name="timbrado" placeholder="123456789" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group mb-1">
+                        <span class="input-group-text texto-campo">
+                            Nº Fiscal
+                        </span>
+                        <input id="fiscal" name="fiscal" placeholder="001-001-1234567" class="form-control" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-12">
+                    <div class="input-group mb-1">
+                        <span class="input-group-text texto-campo">
+                            Proveedor
+                        </span>
+                        <input id="proveedor" name="proveedor" placeholder="Proveedor" class="form-control" type="text" onkeyup="buscar_lista('proveedor', 'modal_buscador-proveedor', 'elegir_proveedor(this)', 'buscar_proveedor()', 'panel-lista')">
+                        <span class="input-group-text">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- DETALLE -->
+            <div class="alert alert-info" role="alert">
+                <div class="row mb-2">
+                    <div class="col-md-6">
+                        <div class="input-group mb-1">
+                            <span class="input-group-text texto-campo">
+                                Producto
+                            </span>
+                            <input id="producto" name="producto" placeholder="Producto" class="form-control" type="text" onkeyup="buscar_lista('producto', 'modal_buscador-producto', 'elegir_producto(this)', 'buscar_producto()', 'panel-lista')">
+                            <span class="input-group-text">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group mb-1">
+                            <span class="input-group-text texto-campo">
+                                Cantidad
+                            </span>
+                            <input id="cantidad" name="cantidad" placeholder="Producto" class="form-control text-end" type="number" value="1" min="1" onchange="calcular_total_linea_detalle()">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-6">
+                        <div class="input-group mb-1">
+                            <span class="input-group-text texto-campo">
+                                Precio
+                            </span>
+                            <input id="precio" name="precio" placeholder="Precio" class="form-control text-end" type="number" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group mb-1">
+                            <span class="input-group-text texto-campo">
+                                Total
+                            </span>
+                            <input id="total" name="total" placeholder="Total" class="form-control text-end" type="number" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col md-12 text-center">
+                        <button type="button" id="boton-guardar-detalle" class="btn btn-outline-success btn-sm" onclick="guardar_detalle()">
+                            <i class="fas fa-plus"></i> Agregar Detalle
+                        </button>
+                        <button type="button" id="boton-cancelar-detalle" class="btn btn-outline-info btn-sm" onclick="agregar_linea_detalle()">
+                            <i class="fas fa-times"></i> Cancelar Detalle
+                        </button>
+                    </div>
+                </div>
+                <div id="panel-formulario-mensaje-detalle" class="alert alert-danger mt-2 text-center d-none" role="alert"></div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width: 100px;" class="text-end">Cantidad</th>
+                                <th>Producto</th>
+                                <th class="text-end">Precio</th>
+                                <th class="text-end">Total</th>
+                                <th class="text-center" style="width: 100px;">
+                                    <button type="button" id="boton-agregar-linea-detalle" class="btn btn-outline-primary btn-sm" onclick="agregar_linea_detalle()">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-datos-compras-detalle"></tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">TOTALES</td>
+                                <td id="total_compra" class="text-end">0</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <!-- OPCIONES DEL DOCUMENTO -->
+            <div class="row">
+                <div class="col md-12 text-center">
+                    <button type="button" id="boton-guardar" class="btn btn-outline-primary btn-sm" onclick="guardar()">
+                        <i class="fas fa-plus"></i> Agregar
+                    </button>
+                    <button type="button" id="boton-cancelar" class="btn btn-outline-danger btn-sm" onclick="agregar_linea()">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </div>
+            <div id="panel-formulario-mensaje" class="alert alert-danger mt-2 text-center d-none" role="alert"></div>
+        </div>
+        <div class="input-group mb-1">
+            <span class="input input-group-text texto-campo">
+                Buscar
+            </span>
+            <input id="buscar" name="buscar" placeholder="Buscar..." class="form-control" type="text" onkeyup="buscar_compras()">
+            <span class="input-group-text">
+                <i class="fas fa-search"></i>
+            </span>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Condicion</th>
+                        <th>Timbrado</th>
+                        <th>Nº Fiscal</th>
+                        <th>Proveedor</th>
+                        <th class="text-center" style="width: 100px;">
+                            <button type="button" id="boton-agregar-linea" class="btn btn-outline-primary btn-sm" onclick="agregar_linea()">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-datos-compras"></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="button" id="boton-salir" class="btn btn-outline-danger btn-sm" onclick="salir_formulario()">
+            <i class="fas fa-sign-out-alt"></i> Salir
+        </button>
+    </div>
+</div>
+<script src="./frm/procesos/compras/index.js"></script>
